@@ -10,9 +10,10 @@ public class Atividade {
         // System.out.printf("%.2f", somaFracao(n));
         // System.out.println();
         // String pal = "azul";
-        // System.out.println(inverteString(pal, pal.length() - 1, 0));
-        int[] v = {7, 6, 5, 9, 4};
-        System.out.println(somaVetor(v, 0, 0));
+        // System.out.println(inverteString(pal, 0));
+        // int[] v = {7, 6, 5, 9, 4};
+        // System.out.println(somaVetor(v, 0, 0));
+        // System.out.println(multiplicaVetor(v, 0, 0));
     }
 
     public static int soma(int multiplicador, int multiplicando) {
@@ -41,15 +42,12 @@ public class Atividade {
         return somaFracao(n) + soma;
     }
 
-    public static char inverteString(String palavra, int tam, int i) {
-        char[] c = palavra.toCharArray();
-        if(tam == i) {
-            return c[i];
+    public static String inverteString(String palavra, int i) {
+        if (i == palavra.length()) {
+            return "";
         }
-        i++;
-        
-        System.out.println(inverteString(palavra, tam, i)); 
-        return inverteString(palavra, tam, i);
+
+        return inverteString(palavra, i + 1) + palavra.charAt(i);
     }
 
     public static int somaVetor(int[] v, int i, int soma) {
@@ -63,11 +61,11 @@ public class Atividade {
 
     public static int multiplicaVetor(int v[], int i, int multiplicacao) {
         if(i > v.length - 1) {
-            return 0;
+            return 1;
         }
         multiplicacao = v[i];
         i++;
-        return somaVetor(v, i, multiplicacao) * multiplicacao;
+        return multiplicaVetor(v, i, multiplicacao) * multiplicacao;
     }
 
 }
