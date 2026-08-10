@@ -6,7 +6,8 @@ public class Atividade {
         // int resultado = soma(multiplicador, multiplicando);
         // System.out.println(resultado);
         // System.out.println(somaDois(multiplicador, multiplicando));
-        // int n = 3;
+        int k = 5;
+        int j = 2;
         // System.out.printf("%.2f", somaFracao(n));
         // System.out.println();
         // String pal = "azul";
@@ -14,6 +15,7 @@ public class Atividade {
         // int[] v = {7, 6, 5, 9, 4};
         // System.out.println(somaVetor(v, 0, 0));
         // System.out.println(multiplicaVetor(v, 0, 0));
+        System.out.println(somatorioEntre(k, j));
     }
 
     public static int soma(int multiplicador, int multiplicando) {
@@ -66,6 +68,28 @@ public class Atividade {
         multiplicacao = v[i];
         i++;
         return multiplicaVetor(v, i, multiplicacao) * multiplicacao;
+    }
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    public static int somatorio(int n) {
+        if(n < 0) {
+            return -1;
+        }
+        if(n == 0) {
+            return 0;
+        }
+        return somatorio(n - 1) + n;
+    }
+
+    public static int somatorioEntre(int k, int j) {
+        if(k < 0 || j < 0)
+            return -1;
+        if(k > j)
+            return somatorioEntre(k - 1, j) + k;
+        if(j > k)
+            return somatorioEntre(k, j - 1) + j;
+        return 0;
     }
 
 }
